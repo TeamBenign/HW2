@@ -34,6 +34,15 @@ jobs:
         autopep8 -d --diff rand.py
         autopep8 --aggressive --in-place hw2_debugging.py
         autopep8 --aggressive --in-place rand.py
+    - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --local user.email "bsse0635@iit.du.ac.bd"
+          git config --local user.name "nazmul-md"
+          git add .
+          git commit -m "Auto-format code with autopep8" || exit 0
+          git push
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names

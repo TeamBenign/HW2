@@ -32,6 +32,8 @@ jobs:
       run: |
         autopep8 -d --diff hw2_debugging.py
         autopep8 -d --diff rand.py
+        autopep8 --aggressive --in-place hw2_debugging.py
+        autopep8 --aggressive --in-place rand.py
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names

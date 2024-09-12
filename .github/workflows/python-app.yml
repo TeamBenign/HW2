@@ -36,7 +36,7 @@ jobs:
         autopep8 --aggressive --in-place rand.py
     - name: Commit and push changes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.HW2_SECRET }}
         run: |
           git config --local user.email "bsse0635@iit.du.ac.bd"
           git config --local user.name "nazmul-md"

@@ -6,6 +6,7 @@
 
 [![Build](https://github.com/TeamBenign/HW2/actions/workflows/python-app.yml/badge.svg)](https://github.com/TeamBenign/HW2/actions/workflows/python-app.yml)
 ![Test Status](https://github.com/TeamBenign/HW2/tree/main/badges/test_status.svg)
+
 This repository is all about exploring different debugging techniques and executing different static analysis tools. 
 
 

@@ -61,9 +61,11 @@ jobs:
         echo "Test status code: $TEST_STATUS"
         if [ $TEST_STATUS -eq 0 ]; then
           echo "Tests Passed" > badges/test_status.txt
+          echo "passed here"
           curl -o badges/test_status.svg "https://img.shields.io/badge/tests-passed-brightgreen"
         else
           echo "Tests Failed" > badges/test_status.txt
+          echo "failed here"
           curl -o badges/test_status.svg "https://img.shields.io/badge/tests-failed-red"
         fi
     - name: Commit and push changes

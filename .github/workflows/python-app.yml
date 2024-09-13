@@ -57,10 +57,9 @@ jobs:
     - name: Test with pytest
       run: |
         pytest --disable-warnings -q || true
-    - name: Generate badge
-      run: |
-        mkdir -p badges
-        if [ $? -eq 0 ]; then
+        TEST_STATUS=$?
+        echo "Test status code: $TEST_STATUS"
+        if [ $TEST_STATUS -eq 0 ]; then
           echo "Tests Passed" > badges/test_status.txt
           curl -o badges/test_status.svg "https://img.shields.io/badge/tests-passed-brightgreen"
         else

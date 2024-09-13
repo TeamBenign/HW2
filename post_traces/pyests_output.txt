@@ -133,4 +133,4 @@ FAILED test_mergesort.py::test_merge_sort_invalid_inputs[input3-TypeError-Input 
   + unhashable type: 'slice'
 FAILED test_mergesort.py::test_merge_sort_invalid_inputs[input4-ValueError-All elements in the list must be integers or floats] - TypeError: '<' not supported between instances of 'str' and 'int'
 FAILED test_mergesort.py::test_merge_sort_invalid_inputs[input5-ValueError-All elements in the list must be integers or floats] - TypeError: '<' not supported between instances of 'int' and 'list'
-6 failed, 11 passed in 0.09s
+6 failed, 11 passed in 0.08s

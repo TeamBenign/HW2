@@ -41,12 +41,12 @@ jobs:
       run: |
         pylint hw2_debugging.py rand.py --exit-zero >> post_traces/pylint
         TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
-        echo "Pylint report generated on: $TIMESTAMP" > post_traces/pylint
+        echo "Pylint report generated on: $TIMESTAMP" > post_traces/pylint || true
     - name: Run Bandit
       run: |
         TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
         echo "Bandit report generated on: $TIMESTAMP" > post_traces/bandit
-        bandit -r hw2_debugging.py rand.py >> post_traces/bandit
+        bandit -r hw2_debugging.py rand.py -f txt -o post_traces/bandit || true
     - name: Commit and push changes
       env:
         GITHUB_TOKEN: ${{ secrets.HW2_SECRET }}

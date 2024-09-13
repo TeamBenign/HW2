@@ -58,6 +58,8 @@ jobs:
       continue-on-error: true
       run: |
         pytest --disable-warnings -q
+    - name: Generate Badges 
+      run: |
         TEST_STATUS=$?
         echo "Test status code: $TEST_STATUS"
         if [ $TEST_STATUS -eq 0 ]; then

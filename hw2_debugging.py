@@ -2,9 +2,9 @@ import rand
 
 
 def mergeSort(arr):
-    if not isinstance(arr, list):         
-        raise TypeError("Input must be a list")     
-    if any(not isinstance(x, (int, float)) for x in arr):         
+    if not isinstance(arr, list):
+        raise TypeError("Input must be a list")
+    if any(not isinstance(x, (int, float)) for x in arr):
         raise ValueError("All elements in the list must be integers or floats")
     if (len(arr) <= 1):
         return arr

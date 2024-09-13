@@ -1,4 +1,4 @@
-import subprocess
+import random
 
 
 def random_array(arr):

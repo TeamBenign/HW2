@@ -1,5 +1,5 @@
 import pytest
-from hw2_debugging import mergeSort
+from hw2_debugging import merge_sort
 invalid_inputs = [
         # Test case with None
         (None, TypeError, "Input must be a list"),
@@ -34,20 +34,20 @@ corner_case_inputs = [
 @pytest.mark.parametrize("input,expected_exception,expected_message", invalid_inputs)
 def test_merge_sort_invalid_inputs(input, expected_exception, expected_message):
     with pytest.raises(expected_exception) as exc_info:
-        mergeSort(input)
+        merge_sort(input)
     assert str(exc_info.value) == expected_message
 
 @pytest.mark.parametrize("input,expected_output", correctness_check_inputs)
 def test_merge_sort_correct_sorting(input, expected_output):
-    print(mergeSort(input))
-    assert mergeSort(input) == expected_output
+    print(merge_sort(input))
+    assert merge_sort(input) == expected_output
 
 
 @pytest.mark.parametrize("input,expected_output", correctness_check_inputs)
 def test_merge_sort_correct_sorting(input, expected_output):
-    assert mergeSort(input) == expected_output
+    assert merge_sort(input) == expected_output
 
 
 @pytest.mark.parametrize("input,expected_output", corner_case_inputs)
 def test_merge_sort_corner_cases(input, expected_output):
-    assert mergeSort(input) == expected_output
+    assert merge_sort(input) == expected_output

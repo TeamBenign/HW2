@@ -1,1 +1,25 @@
 Pylint report generated on: 2024-09-13 03:49:07
+************* Module hw2_debugging
+hw2_debugging.py:9:0: C0325: Unnecessary parens after 'if' keyword (superfluous-parens)
+hw2_debugging.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+hw2_debugging.py:4:0: C0116: Missing function or method docstring (missing-function-docstring)
+hw2_debugging.py:4:0: C0103: Function name "mergeSort" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:16:0: C0116: Missing function or method docstring (missing-function-docstring)
+hw2_debugging.py:16:14: C0103: Argument name "leftArr" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:16:23: C0103: Argument name "rightArr" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:17:4: C0103: Variable name "leftIndex" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:18:4: C0103: Variable name "rightIndex" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:19:4: C0103: Variable name "mergeArr" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:24:12: C0103: Variable name "leftIndex" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:27:12: C0103: Variable name "rightIndex" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:31:8: C0103: Variable name "leftIndex" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:35:8: C0103: Variable name "rightIndex" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:1:0: W0611: Unused import rand (unused-import)
+************* Module rand
+rand.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+rand.py:4:0: C0116: Missing function or method docstring (missing-function-docstring)
+rand.py:6:4: C0200: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+
+-----------------------------------
+Your code has been rated at 4.71/10
+

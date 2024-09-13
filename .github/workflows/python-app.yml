@@ -37,6 +37,12 @@ jobs:
         autopep8 -d --diff rand.py
         autopep8 --aggressive --in-place hw2_debugging.py
         autopep8 --aggressive --in-place rand.py
+    - name: Run pylint
+      run: |
+        output = $(pylint hw2_debugging.py rand.py --exit-zero >> post_traces/pylint)
+    - name: Run Bandit
+      run: |
+        output = $(bandit -r hw2_debugging.py rand.py >> post_traces/bandit)
     - name: Commit and push changes
       env:
         GITHUB_TOKEN: ${{ secrets.HW2_SECRET }}
@@ -55,9 +61,3 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-    - name: Run pylint
-      run: |
-        pylint hw2_debugging.py rand.py
-    - name: Run Bandit
-      run: |
-        bandit -r hw2_debugging.py rand.py

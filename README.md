@@ -6,7 +6,7 @@
 
 [![Build](https://github.com/TeamBenign/HW2/actions/workflows/python-app.yml/badge.svg)](https://github.com/TeamBenign/HW2/actions/workflows/python-app.yml)
 [![Test Status](https://github.com/TeamBenign/HW2/raw/main/badges/test_status.svg)](https://github.com/TeamBenign/HW2/actions/workflows/python-app.yml)
-[![pylint]()](https://github.com/TeamBenign/HW2/actions/workflows/python-app.yml)
+[![pylint](https://img.shields.io/badge/PyLint-4.41-red?logo=python&logoColor=whitehttps://img.shields.io/badge/PyLint-4.41-red?logo=python&logoColor=white)
 
 This repository is all about exploring different debugging techniques and executing different static analysis tools. 
 

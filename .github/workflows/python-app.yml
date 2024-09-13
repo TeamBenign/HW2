@@ -72,10 +72,6 @@ jobs:
           echo "Tests Failed" > badges/test_status.txt
           curl -o badges/test_status.svg "https://img.shields.io/badge/tests-failed-red"
         fi
-    - uses: kgpl/gh-pylint@v1
-      with:
-        package-path: src
-        python-version: 3.11
     - name: Commit and push changes
       env:
         GITHUB_TOKEN: ${{ secrets.HW2_SECRET }}

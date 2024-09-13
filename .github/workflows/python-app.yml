@@ -29,7 +29,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest autopep8 pylint bandit pylint-badge
+        pip install flake8 pytest autopep8 pylint bandit
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: autopep8 for automatically formats Python code to conform to the pep 8 style guide.
       run: |
@@ -67,10 +67,6 @@ jobs:
           echo "Tests Failed" > badges/test_status.txt
           curl -o badges/test_status.svg "https://img.shields.io/badge/tests-failed-red"
         fi
-    - name: Generate pylint badge
-      continue-on-error: true
-      run: |
-        pylint-badge hw2_debugging.py rand.py badges/pylint.svg
     - name: Commit and push changes
       env:
         GITHUB_TOKEN: ${{ secrets.HW2_SECRET }}

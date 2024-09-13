@@ -55,9 +55,9 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-      name: Run pylint
+    - name: Run pylint
       run: |
         pylint Hw2_debugging.py rand.py
-      name: Run Bandit
+    - name: Run Bandit
       run: |
         bandit -r Hw2_debugging.py rand.py

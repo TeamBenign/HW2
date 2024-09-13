@@ -1,0 +1,136 @@
+FFFFFF...........                                                        [100%]
+=================================== FAILURES ===================================
+_____ test_merge_sort_invalid_inputs[None-TypeError-Input must be a list] ______
+
+input = None, expected_exception = <class 'TypeError'>
+expected_message = 'Input must be a list'
+
+    @pytest.mark.parametrize("input,expected_exception,expected_message", invalid_inputs)
+    def test_merge_sort_invalid_inputs(input, expected_exception, expected_message):
+        with pytest.raises(expected_exception) as exc_info:
+            mergeSort(input)
+>       assert str(exc_info.value) == expected_message
+E       assert "object of ty... has no len()" == 'Input must be a list'
+E         
+E         - Input must be a list
+E         + object of type 'NoneType' has no len()
+
+test_mergesort.py:38: AssertionError
+______ test_merge_sort_invalid_inputs[42-TypeError-Input must be a list] _______
+
+input = 42, expected_exception = <class 'TypeError'>
+expected_message = 'Input must be a list'
+
+    @pytest.mark.parametrize("input,expected_exception,expected_message", invalid_inputs)
+    def test_merge_sort_invalid_inputs(input, expected_exception, expected_message):
+        with pytest.raises(expected_exception) as exc_info:
+            mergeSort(input)
+>       assert str(exc_info.value) == expected_message
+E       assert "object of ty... has no len()" == 'Input must be a list'
+E         
+E         - Input must be a list
+E         + object of type 'int' has no len()
+
+test_mergesort.py:38: AssertionError
+____ test_merge_sort_invalid_inputs[invalid-TypeError-Input must be a list] ____
+
+input = 'invalid', expected_exception = <class 'TypeError'>
+expected_message = 'Input must be a list'
+
+    @pytest.mark.parametrize("input,expected_exception,expected_message", invalid_inputs)
+    def test_merge_sort_invalid_inputs(input, expected_exception, expected_message):
+>       with pytest.raises(expected_exception) as exc_info:
+E       Failed: DID NOT RAISE <class 'TypeError'>
+
+test_mergesort.py:36: Failed
+____ test_merge_sort_invalid_inputs[input3-TypeError-Input must be a list] _____
+
+input = {'a': 1, 'b': 2}, expected_exception = <class 'TypeError'>
+expected_message = 'Input must be a list'
+
+    @pytest.mark.parametrize("input,expected_exception,expected_message", invalid_inputs)
+    def test_merge_sort_invalid_inputs(input, expected_exception, expected_message):
+        with pytest.raises(expected_exception) as exc_info:
+            mergeSort(input)
+>       assert str(exc_info.value) == expected_message
+E       assert "unhashable type: 'slice'" == 'Input must be a list'
+E         
+E         - Input must be a list
+E         + unhashable type: 'slice'
+
+test_mergesort.py:38: AssertionError
+_ test_merge_sort_invalid_inputs[input4-ValueError-All elements in the list must be integers or floats] _
+
+input = [1, 'two', 3], expected_exception = <class 'ValueError'>
+expected_message = 'All elements in the list must be integers or floats'
+
+    @pytest.mark.parametrize("input,expected_exception,expected_message", invalid_inputs)
+    def test_merge_sort_invalid_inputs(input, expected_exception, expected_message):
+        with pytest.raises(expected_exception) as exc_info:
+>           mergeSort(input)
+
+test_mergesort.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+hw2_debugging.py:10: in mergeSort
+    return recombine(mergeSort(arr[:half]), mergeSort(arr[half:]))
+hw2_debugging.py:10: in mergeSort
+    return recombine(mergeSort(arr[:half]), mergeSort(arr[half:]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+leftArr = ['two'], rightArr = [3]
+
+    def recombine(leftArr, rightArr):
+        leftIndex = 0
+        rightIndex = 0
+        mergeArr = [None] * (len(leftArr) + len(rightArr))
+    
+        while leftIndex < len(leftArr) and rightIndex < len(rightArr):
+>           if leftArr[leftIndex] < rightArr[rightIndex]:
+E           TypeError: '<' not supported between instances of 'str' and 'int'
+
+hw2_debugging.py:19: TypeError
+_ test_merge_sort_invalid_inputs[input5-ValueError-All elements in the list must be integers or floats] _
+
+input = [1, [2, 3]], expected_exception = <class 'ValueError'>
+expected_message = 'All elements in the list must be integers or floats'
+
+    @pytest.mark.parametrize("input,expected_exception,expected_message", invalid_inputs)
+    def test_merge_sort_invalid_inputs(input, expected_exception, expected_message):
+        with pytest.raises(expected_exception) as exc_info:
+>           mergeSort(input)
+
+test_mergesort.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+hw2_debugging.py:10: in mergeSort
+    return recombine(mergeSort(arr[:half]), mergeSort(arr[half:]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+leftArr = [1], rightArr = [[2, 3]]
+
+    def recombine(leftArr, rightArr):
+        leftIndex = 0
+        rightIndex = 0
+        mergeArr = [None] * (len(leftArr) + len(rightArr))
+    
+        while leftIndex < len(leftArr) and rightIndex < len(rightArr):
+>           if leftArr[leftIndex] < rightArr[rightIndex]:
+E           TypeError: '<' not supported between instances of 'int' and 'list'
+
+hw2_debugging.py:19: TypeError
+=========================== short test summary info ============================
+FAILED test_mergesort.py::test_merge_sort_invalid_inputs[None-TypeError-Input must be a list] - assert "object of ty... has no len()" == 'Input must be a list'
+  
+  - Input must be a list
+  + object of type 'NoneType' has no len()
+FAILED test_mergesort.py::test_merge_sort_invalid_inputs[42-TypeError-Input must be a list] - assert "object of ty... has no len()" == 'Input must be a list'
+  
+  - Input must be a list
+  + object of type 'int' has no len()
+FAILED test_mergesort.py::test_merge_sort_invalid_inputs[invalid-TypeError-Input must be a list] - Failed: DID NOT RAISE <class 'TypeError'>
+FAILED test_mergesort.py::test_merge_sort_invalid_inputs[input3-TypeError-Input must be a list] - assert "unhashable type: 'slice'" == 'Input must be a list'
+  
+  - Input must be a list
+  + unhashable type: 'slice'
+FAILED test_mergesort.py::test_merge_sort_invalid_inputs[input4-ValueError-All elements in the list must be integers or floats] - TypeError: '<' not supported between instances of 'str' and 'int'
+FAILED test_mergesort.py::test_merge_sort_invalid_inputs[input5-ValueError-All elements in the list must be integers or floats] - TypeError: '<' not supported between instances of 'int' and 'list'
+6 failed, 11 passed in 0.09s

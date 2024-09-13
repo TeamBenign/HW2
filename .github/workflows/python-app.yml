@@ -26,16 +26,10 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-    - uses: Silleellie/pylint-github-action@v2
-      with:
-        lint-path: |
-          hw2_debugging
-          rand.py
-        python-version: 3.11
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest autopep8 pylint bandit
+        pip install flake8 pytest autopep8 pylint bandit pylint-badge
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: autopep8 for automatically formats Python code to conform to the pep 8 style guide.
       run: |
@@ -44,8 +38,9 @@ jobs:
         autopep8 --aggressive --in-place hw2_debugging.py
         autopep8 --aggressive --in-place rand.py
     - name: Run pylint
+      continue-on-error: true
       run: |
-        pylint hw2_debugging.py rand.py --exit-zero >> post_traces/pylint
+        pylint hw2_debugging.py rand.py >> post_traces/pylint
         TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
         echo "Pylint report generated on: $TIMESTAMP" > post_traces/pylint || true
     - name: Run Bandit
@@ -72,6 +67,10 @@ jobs:
           echo "Tests Failed" > badges/test_status.txt
           curl -o badges/test_status.svg "https://img.shields.io/badge/tests-failed-red"
         fi
+    - name: Generate pylint badge
+      continue-on-error: true
+      run: |
+        pylint-badge hw2_debugging.py rand.py badges/pylint.svg
     - name: Commit and push changes
       env:
         GITHUB_TOKEN: ${{ secrets.HW2_SECRET }}

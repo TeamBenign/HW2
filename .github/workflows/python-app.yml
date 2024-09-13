@@ -57,7 +57,7 @@ jobs:
         pytest
     - name: Run pylint
       run: |
-        pylint Hw2_debugging.py rand.py
+        pylint hw2_debugging.py rand.py
     - name: Run Bandit
       run: |
-        bandit -r Hw2_debugging.py rand.py
+        bandit -r hw2_debugging.py rand.py

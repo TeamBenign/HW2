@@ -53,7 +53,7 @@ jobs:
       run: |
         git config --local user.email "bsse0635@iit.du.ac.bd"
         git config --local user.name "nazmul-md"
-        git add .
+        git add -A
         git commit -m "Auto-format code with autopep8" || exit 0
         git push
     - name: Lint with flake8

@@ -33,8 +33,10 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: autopep8 for automatically formats Python code to conform to the pep 8 style guide.
       run: |
-        autopep8 -d --diff hw2_debugging.py
-        autopep8 -d --diff rand.py
+        outputdebug=$(autopep8 -d --diff hw2_debugging.py)
+        outputrand=$(autopep8 -d --diff rand.py)
+        echo $outputdebug
+        echo $outputrand
         autopep8 --aggressive --in-place hw2_debugging.py
         autopep8 --aggressive --in-place rand.py
     - name: Commit and push changes

@@ -1,7 +1,5 @@
 """Merge sort module"""
 
-# import rand
-
 
 def merge_sort(arr):
     """Merge sort function that returns a sorted array"""
@@ -10,7 +8,7 @@ def merge_sort(arr):
     if any(not isinstance(x, (int, float)) for x in arr):
         raise ValueError("All elements in the list must be integers or floats")
 
-    if len(arr) <= 1:
+    if len(arr)     <=    1:
         return arr
 
     half = len(arr) // 2
@@ -38,7 +36,7 @@ def recombine(left_arr, right_arr):
     for i in range(right_index, len(right_arr)):
         merge_arr[left_index + right_index] = right_arr[i]
         right_index += 1
-    return merge_arr
+    return                         merge_arr
 
 # Remove to run pytest
 # arr = rand.random_array([None] * 20)

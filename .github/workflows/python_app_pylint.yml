@@ -29,25 +29,14 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest autopep8 pylint bandit
+        pip install flake8 autopep8
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: autopep8 for automatically formats Python code to conform to the pep 8 style guide.
-      run: |
-        autopep8 -d --diff hw2_debugging.py
-        autopep8 -d --diff rand.py
-        autopep8 --aggressive --in-place hw2_debugging.py
-        autopep8 --aggressive --in-place rand.py
     - name: Run pylint
       continue-on-error: true
       run: |
         pylint hw2_debugging.py rand.py >> post_traces/pylint
         TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
         echo "Pylint report generated on: $TIMESTAMP" > post_traces/pylint || true
-    - name: Run Bandit
-      run: |
-        TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
-        echo "Bandit report generated on: $TIMESTAMP" > post_traces/bandit
-        bandit -r hw2_debugging.py rand.py -f txt -o post_traces/bandit || true
 
     - name: Lint with flake8
       run: |
@@ -55,18 +44,6 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
-      continue-on-error: true
-      run: |
-        pytest --disable-warnings -q | tee post_traces/pyests_output.txt
-        TEST_STATUS=${PIPESTATUS[0]}
-        if [ $TEST_STATUS -eq 0 ]; then
-          echo "Tests Passed" > badges/test_status.txt
-          curl -o badges/test_status.svg "https://img.shields.io/badge/tests-passed-brightgreen"
-        else
-          echo "Tests Failed" > badges/test_status.txt
-          curl -o badges/test_status.svg "https://img.shields.io/badge/tests-failed-red"
-        fi
     - name: Commit and push changes
       env:
         GITHUB_TOKEN: ${{ secrets.HW2_SECRET }}

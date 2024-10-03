@@ -35,6 +35,7 @@ jobs:
       run: |
         TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
         echo "Bandit report generated on: $TIMESTAMP" > post_traces/bandit
+        echo bandit -r hw2_debugging.py rand.py
         bandit -r hw2_debugging.py rand.py -f txt -o post_traces/bandit || true
     - name: Commit and push changes
       env:

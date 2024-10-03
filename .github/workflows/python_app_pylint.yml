@@ -34,9 +34,11 @@ jobs:
     - name: Run pylint
       continue-on-error: true
       run: |
-        pylint hw2_debugging.py rand.py >> post_traces/pylint
         TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
         echo "Pylint report generated on: $TIMESTAMP" > post_traces/pylint || true
+        pylint hw2_debugging.py rand.py >> post_traces/pylint
+        output=$(pylint hw2_debugging.py rand.py)
+        echo $output
 
     - name: Lint with flake8
       run: |

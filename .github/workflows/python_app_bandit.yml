@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Python application
+name: Bandit Workflow
 
 on:
   push:
@@ -35,7 +35,8 @@ jobs:
       run: |
         TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
         echo "Bandit report generated on: $TIMESTAMP" > post_traces/bandit
-        echo bandit -r hw2_debugging.py rand.py
+        output=$(bandit -r hw2_debugging.py rand.py)
+        echo $output
         bandit -r hw2_debugging.py rand.py -f txt -o post_traces/bandit || true
     - name: Commit and push changes
       env:

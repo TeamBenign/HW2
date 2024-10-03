@@ -49,12 +49,6 @@ def test_merge_sort_invalid_inputs(
 
 @pytest.mark.parametrize("input,expected_output", correctness_check_inputs)
 def test_merge_sort_correct_sorting(input, expected_output):
-    print(merge_sort(input))
-    assert merge_sort(input) == expected_output
-
-
-@pytest.mark.parametrize("input,expected_output", correctness_check_inputs)
-def test_merge_sort_correct_sorting(input, expected_output):
     assert merge_sort(input) == expected_output
 
 
